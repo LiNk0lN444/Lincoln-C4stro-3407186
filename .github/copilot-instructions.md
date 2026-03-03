@@ -6,11 +6,12 @@ Este es un **Bootcamp de JavaScript Moderno (ES2023)** estructurado para llevar 
 
 ### 📊 Datos del Bootcamp
 
-- **Duración**: 28 semanas (~7 meses)
+- **Duración**: 34 semanas (~8.5 meses)
 - **Dedicación semanal**: 8 horas
-- **Total de horas**: ~224 horas
+- **Total de horas**: ~272 horas
+- **Nivel de entrada**: Cero (sin experiencia previa en programación)
 - **Nivel de salida**: Desarrollador JavaScript Junior
-- **Enfoque**: JavaScript moderno (ES2023) sin historia pre-ES2023
+- **Enfoque**: Progresión desde fundamentos absolutos hasta JavaScript moderno (ES2023)
 - **Stack**: JavaScript puro, sin frameworks (React/Vue/Angular van en otro bootcamp)
 
 ---
@@ -34,33 +35,41 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 ### Distribución por Etapas
 
-#### **Fundamentos Modernos (Semanas 1-12)** - 96 horas
+#### **Etapa 0: Fundamentos de Programación (Semanas 1–10)** — 80 horas
 
-- ES2023 desde el inicio (let/const, arrow functions, destructuring)
-- Template literals, spread operator, rest parameters
-- Módulos ES (import/export, dynamic imports)
-- Arrays modernos (map, filter, reduce, at(), findLast(), toSorted(), toReversed(), with())
-- Optional chaining `?.`, nullish coalescing `??`, logical assignment (`??=`, `||=`, `&&=`)
+- Primer contacto con programación: ciclo Entrada → Proceso → Salida
+- `console.log()`, comentarios, tipos primitivos, `typeof`
+- Variables (`const`/`let`), operadores, strings y template literals
+- Condicionales (`if/else`, ternario, `switch`)
+- Bucles (`for`, `while`, `for...of`)
+- Funciones (declaración, arrow functions, parámetros por defecto)
+- Arrays y objetos como estructuras de datos
+- Proyecto integrador de consola (sin HTML/CSS)
+
+#### **Etapa 1: Fundamentos ES2023 (Semanas 11–22)** — 96 horas
+
+- Sintaxis moderna en profundidad: destructuring, spread, rest
+- Logical assignment operators (`??=`, `||=`, `&&=`)
 - Clases modernas con campos privados `#` y static blocks
-- Numeric separators (`1_000_000`), BigInt
+- Módulos ES (import/export, dynamic imports, top-level await)
+- Arrays ES2023: `findLast()`, `toSorted()`, `toReversed()`, `with()`
+- Strings, RegExp, Sets, Maps, Iteradores, Generadores
+- Símbolos, Proxies, Reflect
+- Manejo de errores moderno (Error cause, custom errors)
+- Closures, scope avanzado, patrones funcionales
 
-#### **Intermedio (Semanas 13-24)** - 96 horas
+#### **Etapa 2: Intermedio + Avanzado (Semanas 23–34)** — 96 horas
 
 - Programación asincrónica (Promises, async/await, top-level await)
 - Promise.all(), Promise.race(), Promise.allSettled(), Promise.any()
-- Fetch API y trabajo con APIs REST
-- Manejo avanzado de errores (Error cause, custom errors)
-- DOM moderno y eventos
+- Fetch API y APIs REST (CRUD completo, AbortController)
+- DOM moderno y eventos (delegation, CustomEvent, debounce)
 - LocalStorage, SessionStorage e IndexedDB
 - Programación funcional (composición, inmutabilidad)
-
-#### **Avanzado (Semanas 25-28)** - 32 horas
-
-- Testing con Jest
-- Patrones de diseño en JavaScript
-- Clean code y mejores prácticas
-- Debugging avanzado
-- Proyectos completos y complejos
+- Performance y debugging avanzado
+- Testing con Jest (unit tests, mocking, async testing)
+- Patrones de diseño (Singleton, Factory, Observer, Strategy)
+- Clean code y SOLID principles
 
 ---
 
@@ -90,6 +99,23 @@ bootcamp/week-XX/
 - **`_docs/`**: Documentación general que aplica a todo el bootcamp
 - **`_scripts/`**: Scripts de automatización y utilidades
 - **`bootcamp/`**: Contenido semanal del bootcamp
+
+### 🗂️ Orden de Creación de Cada Semana
+
+Al desarrollar el contenido de una nueva semana, seguir **siempre** este orden:
+
+1. `README.md` — Descripción general, objetivos, distribución del tiempo, navegación
+2. `rubrica-evaluacion.md` — Tabla de criterios y puntajes
+3. `1-teoria/` — Archivos de teoría numerados (`01-`, `02-`, …)
+4. `0-assets/` — Diagramas SVG de apoyo vinculados a la teoría
+   - Tema **dark** (fondos oscuros `#1a1a2e` / `#16213e`)
+   - **Sin degradés** — solo colores sólidos
+   - Fuentes **sans-serif** exclusivamente (Inter, Roboto, Open Sans, System UI)
+   - Paleta base: `#F0DB4F` (amarillo JS)
+5. `2-practicas/` — Ejercicios guiados con `starter/` + `solution/`
+6. `3-proyecto/` — Proyecto integrador semanal (único entregable obligatorio)
+7. `4-recursos/` — Ebooks gratuitos, videografía, webgrafía
+8. `5-glosario/README.md` — Términos clave de la semana ordenados A–Z
 
 ---
 
@@ -134,14 +160,14 @@ const result = data.method(x => x.transform);
 // ============================================
 // PASO 1: Nombre del Concepto
 // ============================================
-console.log('--- Paso 1: Nombre del Concepto ---');
+console.log("--- Paso 1: Nombre del Concepto ---");
 
 // Explicación breve del concepto
 // Descomenta las siguientes líneas:
 // const result = data.method(x => x.transform);
 // console.log('Resultado:', result);
 
-console.log('');
+console.log("");
 ```
 
 **solution/index.js:**
@@ -150,10 +176,10 @@ console.log('');
 // ============================================
 // PASO 1: Nombre del Concepto
 // ============================================
-console.log('--- Paso 1: Nombre del Concepto ---');
+console.log("--- Paso 1: Nombre del Concepto ---");
 
-const result = data.method(x => x.transform);
-console.log('Resultado:', result);
+const result = data.method((x) => x.transform);
+console.log("Resultado:", result);
 ```
 
 #### ❌ NO usar este formato en ejercicios:
@@ -265,12 +291,12 @@ const itemData = {
  * @param {Item} item - Datos del elemento
  * @returns {string} HTML del elemento
  */
-const renderItem = item => {
+const renderItem = (item) => {
   // TODO: Implementar usando template literals
   // 1. Mostrar información relevante del elemento
   // 2. Aplicar destructuring para extraer propiedades
   // 3. Retornar HTML generado con template literals
-  return '';
+  return "";
 };
 ```
 
@@ -337,18 +363,18 @@ El estudiante debe:
 
 ```javascript
 // ✅ BIEN - usar const por defecto
-const API_URL = 'https://api.example.com';
+const API_URL = "https://api.example.com";
 const users = [];
 
 // ✅ BIEN - usar let solo si necesitas reasignar
 let counter = 0;
 
 // ❌ MAL - no usar var
-var oldSchool = 'evitar';
+var oldSchool = "evitar";
 
 // ✅ BIEN - arrow functions para funciones cortas
-const double = x => x * 2;
-const greet = name => `Hola, ${name}!`;
+const double = (x) => x * 2;
+const greet = (name) => `Hola, ${name}!`;
 
 // ✅ BIEN - destructuring
 const { name, age } = user;
@@ -356,7 +382,7 @@ const [first, second] = array;
 
 // ✅ BIEN - spread operator
 const newArray = [...oldArray, newItem];
-const newObject = { ...oldObject, newProp: 'value' };
+const newObject = { ...oldObject, newProp: "value" };
 
 // ✅ BIEN - template literals
 const message = `Usuario: ${name}, Edad: ${age}`;
@@ -369,7 +395,7 @@ const value = config.timeout ?? 3000;
 
 // ✅ BIEN - logical assignment operators (ES2021)
 config.timeout ??= 3000;
-user.name ||= 'Anonymous';
+user.name ||= "Anonymous";
 
 // ✅ BIEN - numeric separators (ES2021)
 const billion = 1_000_000_000;
@@ -378,18 +404,20 @@ const billion = 1_000_000_000;
 const lastItem = array.at(-1);
 
 // ✅ BIEN - Object.hasOwn() en lugar de hasOwnProperty (ES2022)
-if (Object.hasOwn(obj, 'prop')) { /* ... */ }
+if (Object.hasOwn(obj, "prop")) {
+  /* ... */
+}
 
 // ✅ BIEN - Error cause (ES2022)
-throw new Error('Failed to fetch', { cause: originalError });
+throw new Error("Failed to fetch", { cause: originalError });
 
 // ✅ BIEN - métodos inmutables de array (ES2023)
 const sorted = array.toSorted((a, b) => a - b);
 const reversed = array.toReversed();
-const modified = array.with(2, 'newValue');
+const modified = array.with(2, "newValue");
 
 // ✅ BIEN - findLast y findLastIndex (ES2023)
-const lastEven = numbers.findLast(n => n % 2 === 0);
+const lastEven = numbers.findLast((n) => n % 2 === 0);
 ```
 
 ### Nomenclatura
@@ -409,11 +437,11 @@ El bootcamp enseña testing con **Jest** en las semanas avanzadas.
 
 ```javascript
 // user.test.js
-describe('User Module', () => {
-  test('should create a new user', () => {
-    const user = createUser('John', 'john@example.com');
-    expect(user.name).toBe('John');
-    expect(user.email).toBe('john@example.com');
+describe("User Module", () => {
+  test("should create a new user", () => {
+    const user = createUser("John", "john@example.com");
+    expect(user.name).toBe("John");
+    expect(user.email).toBe("john@example.com");
   });
 });
 ```
@@ -518,14 +546,14 @@ Debe incluir:
 
 ```javascript
 // ✅ CORRECTO - Nomenclatura en inglés, comentarios en español
-const getUserData = async userId => {
+const getUserData = async (userId) => {
   // Obtener datos del usuario desde la API
   const response = await fetch(`/api/users/${userId}`);
   return response.json();
 };
 
 // ❌ INCORRECTO - Nomenclatura en español
-const obtenerDatosUsuario = async idUsuario => {
+const obtenerDatosUsuario = async (idUsuario) => {
   // Fetch user data from API  <-- comentario en inglés también está mal
   const respuesta = await fetch(`/api/usuarios/${idUsuario}`);
   return respuesta.json();
@@ -624,7 +652,6 @@ Cuando trabajes en este proyecto:
 ### Límites de Respuesta
 
 1. **Divide respuestas largas**
-
    - ❌ **NUNCA generar respuestas que superen los límites de tokens**
    - ✅ **SIEMPRE dividir contenido extenso en múltiples entregas**
    - ✅ Crear contenido por secciones, esperar confirmación del usuario
@@ -640,7 +667,6 @@ Cuando trabajes en este proyecto:
 ### Generación de Código
 
 1. **Usa siempre sintaxis ES2023**
-
    - const/let (nunca var)
    - Arrow functions
    - Template literals
@@ -649,7 +675,6 @@ Cuando trabajes en este proyecto:
    - Módulos ES2023
 
 2. **Gestión de Paquetes**
-
    - ❌ **NUNCA usar `npm`** para instalar paquetes
    - ✅ **SOLO usar `pnpm` o `yarn`** como gestores de paquetes
    - Razón: Mejor rendimiento, gestión de dependencias más eficiente
@@ -668,7 +693,6 @@ Cuando trabajes en este proyecto:
      ```
 
 3. **Base de Datos**
-
    - ✅ **USAR SQLite** cuando se necesite base de datos relacional
    - Razón: Facilidad de configuración, sin servidor, perfecto para aprendizaje
    - SQLite es ideal para:
@@ -679,7 +703,6 @@ Cuando trabajes en este proyecto:
    - Archivo único, fácil de compartir y versionar
 
 4. **Comenta el código de manera educativa**
-
    - Explica conceptos para principiantes
    - Incluye referencias a documentación cuando sea útil
    - Usa comentarios que enseñen, no solo describan
@@ -692,13 +715,11 @@ Cuando trabajes en este proyecto:
 ### Creación de Contenido
 
 1. **Estructura clara y progresiva**
-
    - De lo simple a lo complejo
    - Conceptos construidos sobre conocimientos previos
    - Repetición espaciada de conceptos clave
 
 2. **Ejemplos del mundo real**
-
    - Casos de uso prácticos y relevantes
    - Proyectos que los estudiantes puedan mostrar en portfolios
    - Problemas que encontrarán en el desarrollo real
@@ -711,13 +732,11 @@ Cuando trabajes en este proyecto:
 ### Respuestas y Ayuda
 
 1. **Explicaciones claras**
-
    - Lenguaje simple y directo
    - Evitar jerga innecesaria
    - Proporcionar analogías cuando sea útil
 
 2. **Código comentado**
-
    - Explicar cada paso importante
    - Destacar conceptos clave
    - Señalar posibles errores comunes

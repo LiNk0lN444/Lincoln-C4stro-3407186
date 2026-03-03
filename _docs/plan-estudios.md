@@ -1,27 +1,49 @@
-# 📅 Plan de Estudios - Bootcamp JavaScript ES2023
+# 📅 Plan de Estudios — Bootcamp JavaScript ES2023
 
-**Duración Total**: 28 semanas (7 meses)
-**Horas Semanales**: 8 horas
-**Horas Totales**: 224 horas
+**Duración total**: 34 semanas (~8.5 meses)
+**Horas semanales**: 8 horas
+**Horas totales**: ~272 horas
+**Nivel de entrada**: Cero (sin experiencia previa en programación)
+**Nivel de salida**: Desarrollador JavaScript Junior
+**Enfoque**: JavaScript moderno (ES2023), progresión desde fundamentos absolutos
+
+---
+
+## 🗂️ Orden de Creación de Cada Semana
+
+El instructor debe seguir este orden al desarrollar el contenido de cada semana:
+
+1. `README.md` — Descripción general, objetivos, navegación
+2. `rubrica-evaluacion.md` — Criterios y rúbrica de evaluación
+3. `1-teoria/` — Archivos de teoría numerados (`01-`, `02-`, …)
+4. `0-assets/` — Diagramas SVG de apoyo visual vinculados a la teoría
+   - Tema dark
+   - Sin degradés (solo colores sólidos)
+   - Fuentes sans-serif (Inter, Roboto, Open Sans o System UI)
+   - Paleta base: `#F0DB4F` (amarillo JS), fondos `#1a1a2e` / `#16213e`
+5. `2-practicas/` — Ejercicios guiados (starter + solution por ejercicio)
+6. `3-proyecto/` — Proyecto integrador semanal (único entregable)
+7. `4-recursos/` — Ebooks, videografía, webgrafía
+8. `5-glosario/README.md` — Términos clave de la semana (A–Z)
 
 ---
 
 ## 🚀 Características ES2023 Cubiertas
 
-Este bootcamp cubre todas las características modernas de JavaScript hasta ES2023:
+Este bootcamp introduce JavaScript moderno de forma progresiva hasta ES2023:
 
-### ES2023 (lo más reciente)
+### ES2023
 - `Array.prototype.findLast()` y `findLastIndex()`
-- `Array.prototype.toSorted()`, `toReversed()`, `toSpliced()`, `with()` (Change Array by Copy)
+- `Array.prototype.toSorted()`, `toReversed()`, `toSpliced()`, `with()`
 - Symbols como claves de WeakMap
 
 ### ES2022
-- `Array.prototype.at()` - Índices negativos
-- `Object.hasOwn()` - Reemplazo moderno de `hasOwnProperty`
+- `Array.prototype.at()` — índices negativos
+- `Object.hasOwn()` — reemplazo moderno de `hasOwnProperty`
 - Error cause (`new Error('msg', { cause })`)
-- Class fields: private (`#`), static blocks
+- Class fields privados (`#`), static blocks
 - Top-level await en módulos
-- Regex `/d` flag (indices)
+- Regex `/d` flag
 
 ### ES2021
 - `String.prototype.replaceAll()`
@@ -47,505 +69,642 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ## 🎯 Distribución por Etapas
 
-### 📘 Etapa 1: Fundamentos Modernos (Semanas 1-12)
-**96 horas totales** | JavaScript ES2023 desde cero
+### 🟪 Etapa 0: Fundamentos de Programación (Semanas 1–10)
+**80 horas totales** — Primer contacto absoluto con programación y JavaScript
 
-### 📗 Etapa 2: Intermedio (Semanas 13-24)
-**96 horas totales** | Programación asincrónica y manipulación del DOM
+### 📘 Etapa 1: Fundamentos ES2023 (Semanas 11–22)
+**96 horas totales** — JavaScript moderno: sintaxis ES2023, POO, módulos
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28)
-**32 horas totales** | Testing, patrones y mejores prácticas
+### 📗 Etapa 2: Intermedio + Avanzado (Semanas 23–34)
+**96 horas totales** — Asincronía, DOM, APIs REST, testing y patrones
 
 ---
 
 ## 📚 Contenido Semanal Detallado
 
-### 🟦 ETAPA 1: FUNDAMENTOS MODERNOS (Semanas 1-12)
+---
 
-#### ✅ **Week 01: Introducción a JavaScript Moderno**
+### 🟪 ETAPA 0: FUNDAMENTOS DE PROGRAMACIÓN (Semanas 1–10)
+
+> El estudiante no tiene experiencia previa. Se enseña qué es programar antes de introducir
+> cualquier característica específica de ES2023. Se usa Node.js como entorno de ejecución
+> (consola), sin HTML ni CSS, para mantener el foco en lógica pura.
+
+---
+
+#### ✅ **Week 01: ¿Qué es programar? Mi primer JavaScript**
 **Estado**: Completada
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Configuración del entorno (VS Code, Node.js, Git)
-- Variables (let, const) y tipos de datos
-- Template literals
-- Arrow functions básicas
-- Operadores modernos (optional chaining `?.`, nullish coalescing `??`)
-- Logical assignment operators (`??=`, `||=`, `&&=`)
-- Numeric separators (`1_000_000`)
+- ¿Qué es un programa? El ciclo Entrada → Proceso → Salida
+- ¿Para qué sirve JavaScript?
+- Entorno de desarrollo: VS Code + Node.js + terminal
+- `console.log()` y variantes (`warn`, `error`, `table`)
+- Comentarios de una línea y multilínea
+- Tipos primitivos: `string`, `number`, `boolean`
+- Operador `typeof`
+- Literales vs expresiones
 
-**Proyecto**: Calculadora moderna con ES2023
-
----
-
-#### ✅ **Week 02: Operadores Avanzados y Array Methods**
-**Estado**: Completada
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
-
-**Temas**:
-- Spread operator (`...`)
-- Rest parameters
-- Default parameters
-- Array methods (map, filter, reduce, find, some, every)
-- `Array.prototype.at()` para índices negativos (ES2022)
-- Object enhancements (shorthand, computed properties)
-- `Object.hasOwn()` (ES2022)
-
-**Proyecto**: Gestor de Tareas (Task Manager)
+**Proyecto**: `mi-presentacion.js` — datos personales usando solo `console.log()`
 
 ---
 
-#### **Week 03: Clases y Programación Orientada a Objetos**
+#### **Week 02: Variables y Tipos de Datos**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Clases modernas (class, constructor)
+- `const` vs `let` — cuándo usar cada uno
+- Por qué NO usar `var`
+- Tipos primitivos completos: `string`, `number`, `boolean`, `null`, `undefined`
+- `typeof` para todos los tipos (incluyendo `typeof null === 'object'`)
+- Conversiones explícitas: `Number()`, `String()`, `Boolean()`
+- Reglas de nomenclatura: camelCase, nombres descriptivos
+- Numeric separators `1_000_000` (ES2021)
+
+**Proyecto**: `ficha-personal.js` — tarjeta de datos con tipos y conversiones
+
+---
+
+#### **Week 03: Operadores y Expresiones**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Operadores aritméticos: `+`, `-`, `*`, `/`, `%`, `**`
+- Operadores de asignación: `=`, `+=`, `-=`, `*=`, `/=`
+- Operadores de comparación: `===`, `!==`, `>`, `<`, `>=`, `<=`
+  - Por qué usar `===` en lugar de `==`
+- Operadores lógicos: `&&`, `||`, `!`
+- Orden de precedencia
+- Coerción de tipos implícita (qué es y por qué evitarla)
+
+**Proyecto**: `calculadora.js` — calculadora multi-operación con `console.log()`
+
+---
+
+#### **Week 04: Strings — Texto y Template Literals**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Propiedades: `.length`
+- Métodos: `.toUpperCase()`, `.toLowerCase()`, `.trim()`, `.includes()`, `.startsWith()`, `.endsWith()`
+- `.indexOf()`, `.slice()`, `.replace()`, `.split()`, `.repeat()`
+- Template literals — interpolación y multilínea
+- Secuencias de escape: `\n`, `\t`, `\\`, `\"`
+- Concatenación vs template literals
+
+**Proyecto**: `generador-mensajes.js` — sistema de mensajes personalizados con template literals
+
+---
+
+#### **Week 05: Condicionales**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- `if`, `else if`, `else`
+- Operador ternario `? :`
+- `switch` statement
+- Operadores lógicos como condicionales: `&&`, `||`
+- Nullish coalescing `??` (ES2020) — primer ES moderno introducido
+- Optional chaining `?.` (ES2020)
+- Truthiness y falsy values
+
+**Proyecto**: `clasificador.js` — sistema de clasificación con múltiples condiciones
+
+---
+
+#### **Week 06: Bucles — Repetición**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- `for` clásico
+- `while` y `do...while`
+- `for...of` — iteración por valor
+- `break` y `continue`
+- Bucles anidados
+- Contadores y acumuladores
+
+**Proyecto**: `juego-numeros.js` — mini juego de adivinanza con contador de intentos
+
+---
+
+#### **Week 07: Funciones**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Declaración de función (`function nombre()`)
+- Parámetros y argumentos
+- `return`
+- Arrow functions `=>` — sintaxis moderna preferida
+- Parámetros por defecto
+- Funciones como valores (callbacks básicos)
+- Scope: local vs global
+- Funciones puras — concepto
+
+**Proyecto**: `utilidades.js` — librería de funciones reutilizables para el dominio asignado
+
+---
+
+#### **Week 08: Arrays — Listas de Datos**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Crear y acceder arrays: `[]`, índices, `.length`
+- `.push()`, `.pop()`, `.shift()`, `.unshift()`
+- `.at()` para índices negativos (ES2022)
+- `.includes()`, `.indexOf()`
+- `.slice()`, `.splice()`
+- Iteración: `for...of`, `.forEach()`
+- `.map()`, `.filter()`, `.find()` — introducción
+- Spread operator `...` con arrays
+
+**Proyecto**: `inventario.js` — gestión de inventario del dominio asignado
+
+---
+
+#### **Week 09: Objetos — Datos Estructurados**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Crear objetos literales `{}`
+- Acceso con punto `.` y corchetes `[]`
+- Métodos de objeto
+- `Object.keys()`, `Object.values()`, `Object.entries()`
+- `Object.hasOwn()` (ES2022) — verificar propiedades
+- `for...in` para iterar propiedades
+- Spread con objetos `{ ...obj }`
+- Arrays de objetos
+
+**Proyecto**: `catalogo.js` — catálogo de elementos del dominio asignado (array de objetos)
+
+---
+
+#### **Week 10: Proyecto Integrador — Etapa 0**
+**Horas**: 8h (1h revisión + 1.5h planning + 5h desarrollo + 0.5h presentación)
+
+**Temas**:
+- Revisión de Semanas 1–9
+- Diseño de solución (pseudocódigo y estructura)
+- Integración de variables, funciones, arrays, objetos y condicionales
+
+**Proyecto**: Aplicación de consola completa del dominio asignado — integra todos los fundamentos
+
+---
+
+### 📘 ETAPA 1: FUNDAMENTOS ES2023 (Semanas 11–22)
+
+> El estudiante ya conoce los fundamentos. Se introduce la sintaxis moderna de JavaScript
+> (ES6+→ES2023) con profundidad y se trabaja sobre Node.js y módulos.
+
+---
+
+#### **Week 11: JavaScript Moderno — Repaso y Profundización**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Scope de bloque con `const`/`let` (profundización)
+- Arrow functions avanzadas (this context, diferencias con function)
+- Destructuring de arrays y objetos
+- Alias y valores por defecto en destructuring
+- Logical assignment operators `??=`, `||=`, `&&=` (ES2021)
+- Short-circuit evaluation
+
+**Proyecto**: Refactorización de soluciones de Etapa 0 usando sintaxis moderna
+
+---
+
+#### **Week 12: Spread, Rest y Métodos Avanzados de Arrays**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Spread `...` en arrays y objetos (profundización)
+- Rest parameters `...args`
+- `.reduce()` — acumulación y transformación
+- `.some()`, `.every()`
+- `.flat()`, `.flatMap()` (ES2019)
+- `Object.fromEntries()` (ES2019)
+- Chaining de métodos de array
+
+**Proyecto**: Procesador de datos con chaining complejo del dominio asignado
+
+---
+
+#### **Week 13: Clases y Programación Orientada a Objetos**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- `class`, `constructor`
 - Métodos de instancia y estáticos
-- Herencia (extends, super)
-- Getters y Setters
-- Private fields (`#`) y private methods (ES2022)
+- Herencia: `extends`, `super`
+- Getters y setters
+- Private fields `#` (ES2022)
 - Static blocks (ES2022)
+- Cuándo usar clases vs objetos literales
 
-**Proyecto**: Sistema de gestión de biblioteca (clases Book, Library, User)
+**Proyecto**: Modelado orientado a objetos del dominio asignado
 
 ---
 
-#### **Week 04: Destructuring y Módulos ES2023**
+#### **Week 14: Módulos ES2023**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Destructuring de arrays
-- Destructuring de objetos (alias, valores por defecto, anidado)
-- Módulos ES (import/export)
-- Named exports vs Default exports
-- Dynamic imports (`import()`)
+- `import` / `export` — named y default
+- Re-exports y alias
+- `import.meta`
+- Dynamic imports `import()` (ES2020)
 - Top-level await en módulos (ES2022)
+- Organización de proyectos en módulos
 
-**Proyecto**: Aplicación modular de gestión de inventario
+**Proyecto**: Aplicación multi-módulo del dominio asignado
 
 ---
 
-#### **Week 05: Arrays Avanzados**
+#### **Week 15: Arrays Avanzados — ES2023**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Métodos avanzados (flatMap, flat, from, of)
 - `findLast()` y `findLastIndex()` (ES2023)
-- Métodos inmutables: `toSorted()`, `toReversed()`, `toSpliced()`, `with()` (ES2023)
-- Chaining complejo y transformaciones de datos
-- Ordenamiento personalizado (sort vs toSorted)
+- `toSorted()`, `toReversed()`, `toSpliced()`, `with()` (ES2023)
+- `sort()` vs `toSorted()` — mutabilidad vs inmutabilidad
+- `Array.from()`, `Array.of()`
+- Ordenamiento personalizado con comparadores
+- Transformaciones complejas (chaining avanzado)
 
-**Proyecto**: Dashboard de análisis de datos
+**Proyecto**: Dashboard de análisis de datos del dominio asignado
 
 ---
 
-#### **Week 06: Strings y RegExp Modernos**
+#### **Week 16: Strings y RegExp Modernos**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- String methods modernos (includes, startsWith, endsWith, repeat)
 - `replaceAll()` (ES2021)
 - `trimStart()`, `trimEnd()` (ES2019)
 - Template literals avanzados (tagged templates)
-- Regular Expressions básicas y `matchAll()`
+- RegExp básica: patrones, flags `g`, `i`, `m`
+- `matchAll()`, `match()`, `test()`
 - Regex `/d` flag para índices (ES2022)
+- Grupos de captura nombrados
 
-**Proyecto**: Validador de formularios con RegExp
+**Proyecto**: Validador y procesador de texto del dominio asignado
 
 ---
 
-#### **Week 07: Sets y Maps**
+#### **Week 17: Sets y Maps**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Set (agregar, eliminar, verificar existencia)
-- Map (claves de cualquier tipo)
-- WeakSet y WeakMap
+- `Set` — colección de valores únicos
+- `Map` — pares clave-valor de cualquier tipo
+- `WeakSet` y `WeakMap`
 - Symbols como claves de WeakMap (ES2023)
-- Casos de uso prácticos
-- Conversión entre estructuras y `Object.fromEntries()` (ES2019)
+- Conversión entre estructuras
+- Casos de uso: deduplicación, caché, registros
 
-**Proyecto**: Sistema de gestión de usuarios únicos
+**Proyecto**: Sistema de datos únicos del dominio asignado
 
 ---
 
-#### **Week 08: Iteradores y Generadores**
+#### **Week 18: Iteradores y Generadores**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Protocol de iteración
-- for...of vs for...in
-- Generadores (function*)
-- yield y delegación de generadores
+- Protocolo de iteración (`Symbol.iterator`)
+- `for...of` en profundidad
+- Generadores (`function*`) y `yield`
+- Delegación de generadores (`yield*`)
 - Iterables personalizados
+- Casos de uso: paginación, streams de datos
 
-**Proyecto**: Paginador personalizado con generadores
-
----
-
-#### **Week 09: Símbolos y Metaprogramación Básica**
-**Horas**: 8h (2h teoría + 3h práctica + 2.5h proyecto + 0.5h recursos)
-
-**Temas**:
-- Símbolos (Symbol)
-- Well-known symbols (Symbol.iterator, Symbol.toStringTag)
-- Object.getOwnPropertySymbols()
-- Uso de símbolos como claves privadas
-
-**Proyecto**: Creación de objetos con propiedades "privadas"
+**Proyecto**: Paginador de datos del dominio asignado
 
 ---
 
-#### **Week 10: Proxies y Reflect**
+#### **Week 19: Símbolos y Metaprogramación**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Proxy object
-- Traps (get, set, has, deleteProperty)
-- Reflect API
-- Validación reactiva
-- Observadores de cambios
+- `Symbol` — identificadores únicos
+- Well-known symbols (`Symbol.iterator`, `Symbol.toStringTag`, `Symbol.hasInstance`)
+- `Object.getOwnPropertySymbols()`
+- `Proxy` — interceptar operaciones
+- `Reflect` — operaciones de reflexión
+- Casos de uso: validación reactiva, observadores
 
-**Proyecto**: Sistema de validación reactivo
+**Proyecto**: Sistema de validación reactiva del dominio asignado
 
 ---
 
-#### **Week 11: Manejo de Errores Moderno**
+#### **Week 20: Manejo de Errores Moderno**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- try...catch...finally
-- Optional catch binding (ES2019)
-- Crear errores personalizados (extends Error)
-- Error cause (ES2022): `new Error('msg', { cause })`
-- Manejo de errores asincrónicos
-- Mejores prácticas
-- Mejores prácticas
+- `try...catch...finally`
+- Optional catch binding `catch {}` (ES2019)
+- Tipos de errores built-in (`TypeError`, `RangeError`, `SyntaxError`, etc.)
+- Errores personalizados (`class MyError extends Error`)
+- Error cause `new Error('msg', { cause })` (ES2022)
+- Manejo de errores como valores (resultado vs excepción)
 
-**Proyecto**: Sistema robusto con manejo de errores completo
-
----
-
-#### **Week 12: Proyecto Integrador - Fundamentos**
-**Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h recursos)
-
-**Temas**:
-- Revisión de todos los conceptos de semanas 1-11
-- Arquitectura de aplicación
-- Clean code y refactoring
-
-**Proyecto**: Aplicación completa de E-commerce (carrito, productos, usuarios)
+**Proyecto**: Sistema robusto con manejo de errores del dominio asignado
 
 ---
 
-### 🟩 ETAPA 2: INTERMEDIO (Semanas 13-24)
-
-#### **Week 13: Programación Asincrónica - Callbacks y Promises**
+#### **Week 21: Closures, Scope Avanzado y Patrones Funcionales**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Callback hell y sus problemas
-- Promises (then, catch, finally)
+- Scope léxico en profundidad
+- Closures — qué son y para qué sirven
+- Función como valor: callbacks, HOF (Higher-Order Functions)
+- Currying y composición básica
+- Inmutabilidad como principio
+- `globalThis` (ES2020)
+
+**Proyecto**: Librería de utilidades funcionales del dominio asignado
+
+---
+
+#### **Week 22: Proyecto Integrador — Etapa 1**
+**Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h presentación)
+
+**Temas**:
+- Integración de Semanas 11–21
+- Arquitectura modular con ES2023
+- POO + funcional: cuándo usar cada paradigma
+
+**Proyecto**: Aplicación completa de consola (Node.js) del dominio asignado — módulos, clases, manejo de errores, arrays ES2023
+
+---
+
+### 📗 ETAPA 2: INTERMEDIO + AVANZADO (Semanas 23–34)
+
+> Se introduce programación asincrónica, DOM, APIs REST, storage local y testing.
+> En esta etapa las aplicaciones son interactivas (navegador).
+
+---
+
+#### **Week 23: Programación Asincrónica — Callbacks y Promises**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- El event loop y el modelo asincrónico de JS
+- Callbacks — callback hell y sus problemas
+- Promises: `then()`, `catch()`, `finally()`
 - Promise chaining
-- `Promise.all()`, `Promise.race()`, `Promise.allSettled()` (ES2020)
+- `Promise.all()`, `Promise.race()`
+- `Promise.allSettled()` (ES2020)
 - `Promise.any()` y `AggregateError` (ES2021)
-- Error handling en promises
 
-**Proyecto**: Simulador de solicitudes HTTP con promises
+**Proyecto**: Simulador de operaciones asíncronas del dominio asignado
 
 ---
 
-#### **Week 14: Async/Await**
+#### **Week 24: Async/Await**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- async functions
-- await keyword
-- Error handling con try/catch
-- Parallel vs Sequential execution
-- Top-level await (ES2022)
+- `async function` y `await`
+- Manejo de errores con `try/catch`
+- Ejecución paralela vs secuencial
+- Top-level await en módulos (ES2022)
 - `for await...of` para iterables asíncronos
+- Antipatrones con async/await
 
-**Proyecto**: Sistema de carga de datos asíncrono
+**Proyecto**: Sistema de carga de datos asíncrona del dominio asignado
 
 ---
 
-#### **Week 15: Fetch API**
+#### **Week 25: Fetch API y APIs REST**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Fetch API básica
-- Request y Response objects
+- Fetch API: `fetch()`, `Request`, `Response`
 - Headers y configuración
-- Manejo de JSON
-- Error handling en fetch
+- Manejo de JSON: `response.json()`
+- Métodos HTTP: GET, POST, PUT, PATCH, DELETE
+- RESTful APIs — convenciones
+- CRUD completo con `fetch`
+- Error handling en fetch (network error vs HTTP error)
+- `AbortController` para cancelar requests
 
-**Proyecto**: Consumidor de API REST pública
-
----
-
-#### **Week 16: APIs REST y CRUD**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
-
-**Temas**:
-- Métodos HTTP (GET, POST, PUT, DELETE, PATCH)
-- RESTful APIs
-- CRUD completo
-- Autenticación básica (headers, tokens)
-- Manejo de estados de carga
-
-**Proyecto**: Aplicación CRUD completa con API
+**Proyecto**: Consumidor de API REST pública del dominio asignado
 
 ---
 
-#### **Week 17: DOM Manipulation Moderna**
+#### **Week 26: DOM Moderno**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- querySelector y querySelectorAll
-- createElement, appendChild, removeChild
-- classList API
-- textContent vs innerHTML
-- Template elements
+- `querySelector`, `querySelectorAll`
+- `createElement`, `append`, `remove`, `replaceWith`
+- `classList` API: `add`, `remove`, `toggle`, `contains`
+- `textContent` vs `innerHTML`
+- `dataset` — atributos `data-*`
+- Template `<template>` element
+- Manipulación del DOM de forma eficiente
 
-**Proyecto**: Constructor de UI dinámico
+**Proyecto**: Interfaz dinámica del dominio asignado (renderizado desde JS)
 
 ---
 
-#### **Week 18: Event Handling Avanzado**
+#### **Week 27: Eventos del DOM**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- addEventListener y removeEventListener
+- `addEventListener` y `removeEventListener`
 - Event bubbling y capturing
 - Event delegation
-- Eventos personalizados (CustomEvent)
-- preventDefault y stopPropagation
+- `CustomEvent` — eventos personalizados
+- `preventDefault()` y `stopPropagation()`
+- Eventos de teclado, mouse, formularios
+- Debounce y throttle para eventos frecuentes
 
-**Proyecto**: Sistema de notificaciones interactivas
+**Proyecto**: Interfaz interactiva con eventos del dominio asignado
 
 ---
 
-#### **Week 19: Web Storage APIs**
+#### **Week 28: Web Storage y Persistencia**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- localStorage
-- sessionStorage
+- `localStorage` y `sessionStorage`
+- `JSON.stringify()` / `JSON.parse()`
 - IndexedDB básico
-- Serialización (JSON.stringify/parse)
 - Manejo de cuotas y límites
+- Sincronización de estado UI ↔ storage
+- FormData API + validación
 
-**Proyecto**: Aplicación con persistencia de datos local
+**Proyecto**: Aplicación con persistencia local del dominio asignado
 
 ---
 
-#### **Week 20: Formularios y Validación**
+#### **Week 29: Programación Funcional**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- FormData API
-- Validación HTML5
-- Constraint Validation API
-- Validación personalizada
-- Submit handling
+- Principios: inmutabilidad, funciones puras, sin efectos secundarios
+- Composición de funciones y pipe
+- Currying y partial application
+- Optional pattern (manejo de null sin excepciones)
+- Programación declarativa vs imperativa
+- Aplicación práctica con arrays y objetos
 
-**Proyecto**: Sistema de registro y login con validación
+**Proyecto**: Procesador de datos funcional del dominio asignado
 
 ---
 
-#### **Week 21: Fechas y Tiempos (Date API)**
+#### **Week 30: Performance y Debugging**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Date object
-- Formateo de fechas
-- Operaciones con fechas
-- Timezones
-- Introducción a Temporal API
+- Chrome DevTools: Sources, Network, Performance
+- Breakpoints, watch expressions, call stack
+- `console` avanzado: `time()`, `group()`, `profile()`
+- Memory leaks — identificación y solución
+- Lazy loading de recursos
+- Performance API (`performance.now()`, `PerformanceObserver`)
 
-**Proyecto**: Calendario y agenda personal
-
----
-
-#### **Week 22: Trabajo con Archivos**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
-
-**Temas**:
-- File API
-- FileReader
-- Blob y URL.createObjectURL
-- Drag and Drop
-- Download de archivos
-
-**Proyecto**: Lector y procesador de archivos
+**Proyecto**: Diagnóstico y optimización de aplicación del dominio asignado
 
 ---
 
-#### **Week 23: Performance y Optimización**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
-
-**Temas**:
-- Debounce y Throttle
-- Lazy loading
-- Performance API
-- Memory leaks
-- Best practices
-
-**Proyecto**: Optimización de aplicación existente
-
----
-
-#### **Week 24: Proyecto Integrador - Intermedio**
-**Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h recursos)
-
-**Temas**:
-- Integración de conceptos de semanas 13-23
-- Arquitectura de aplicación asíncrona
-- UX y manejo de estados de carga
-
-**Proyecto**: Aplicación web completa con API, DOM, Storage y optimización
-
----
-
-### 🟥 ETAPA 3: AVANZADO (Semanas 25-28)
-
-#### **Week 25: Testing con Jest - Parte 1**
+#### **Week 31: Testing con Jest**
 **Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
 
 **Temas**:
-- Introducción a testing
-- Jest setup
-- Unit tests
-- Matchers (expect, toBe, toEqual)
-- Test coverage
+- ¿Qué es testing y por qué importa?
+- Jest: instalación con `pnpm`, configuración
+- Unit tests: `describe`, `test`, `expect`
+- Matchers: `toBe`, `toEqual`, `toContain`, `toThrow`
+- Testing de código asíncrono
+- Mocking básico
+- Code coverage básico
 
-**Proyecto**: Testing de funciones utilitarias
-
----
-
-#### **Week 26: Testing con Jest - Parte 2**
-**Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
-
-**Temas**:
-- Mocking
-- Async testing
-- Integration tests
-- TDD (Test-Driven Development)
-- Best practices
-
-**Proyecto**: Testing de módulos asíncronos
+**Proyecto**: Suite de tests para módulos del dominio asignado
 
 ---
 
-#### **Week 27: Patrones de Diseño y Clean Code**
+#### **Week 32: Patrones de Diseño**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Patrones: Module, Singleton, Factory, Observer
-- SOLID principles
-- Clean code principles
+- Patrones creacionales: Singleton, Factory
+- Patrones estructurales: Module, Decorator
+- Patrones de comportamiento: Observer, Strategy
+- Cuándo aplicar cada patrón
+- Antipatrones comunes en JavaScript
+
+**Proyecto**: Refactorización usando patrones del dominio asignado
+
+---
+
+#### **Week 33: Clean Code y Mejores Prácticas**
+**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+
+**Temas**:
+- Principios SOLID en JavaScript
+- Nombres significativos
+- Funciones pequeñas con una responsabilidad
+- Early returns y evitar anidamiento profundo
 - Code smells y refactoring
-- ESLint y Prettier
+- ESLint + Prettier — configuración
+- Code review: qué buscar
 
-**Proyecto**: Refactorización de código legacy
+**Proyecto**: Auditoría y refactorización de proyecto anterior
 
 ---
 
-#### **Week 28: Proyecto Final - Bootcamp**
+#### **Week 34: Proyecto Final — Bootcamp**
 **Horas**: 8h (0h teoría + 2h planning + 5.5h desarrollo + 0.5h presentación)
 
 **Temas**:
-- Consolidación de TODO lo aprendido
-- Arquitectura completa
-- Testing, Clean Code, Performance
+- Consolidación de todo lo aprendido (Etapas 0–2)
+- Arquitectura completa y modular
+- Testing con Jest
+- Clean code, performance y debugging
+- Documentación con README profesional
 
-**Proyecto**: Aplicación web completa de nivel profesional (a elección: CRM, Blog, Dashboard, Social Network, etc.)
+**Proyecto**: Aplicación completa del dominio asignado — nivel Junior profesional
 
 ---
 
 ## 📊 Resumen por Competencias
 
-### JavaScript Core
-- Variables, tipos, operadores (Week 1-2)
-- Funciones y scope (Week 1-2)
-- Clases y OOP (Week 3)
-- Arrays y objetos (Week 2, 5, 7)
-- Strings y RegExp (Week 6)
+### Fundamentos de Programación (Etapa 0)
+- Lógica y algoritmos básicos (S01–S03)
+- Manejo de texto y condiciones (S04–S05)
+- Bucles y funciones (S06–S07)
+- Estructuras de datos: arrays y objetos (S08–S09)
 
-### JavaScript Avanzado
-- Módulos ES2023 (Week 4)
-- Destructuring (Week 4)
-- Sets/Maps (Week 7)
-- Iteradores/Generadores (Week 8)
-- Símbolos/Proxies (Week 9-10)
-- Manejo de errores (Week 11)
+### JavaScript Moderno ES2023 (Etapa 1)
+- Sintaxis moderna: destructuring, spread, arrow functions (S11)
+- Métodos avanzados de arrays (S12, S15)
+- POO con clases y campos privados (S13)
+- Módulos y arquitectura modular (S14)
+- Strings, Sets, Maps, Iteradores (S16–S18)
+- Metaprogramación y errores (S19–S20)
+- Closures y funcional básico (S21)
 
-### Programación Asincrónica
-- Promises (Week 13)
-- Async/Await (Week 14)
-- Fetch API (Week 15)
-- APIs REST (Week 16)
+### Programación Asincrónica (Etapa 2)
+- Promises y async/await (S23–S24)
+- Fetch API y REST CRUD (S25)
 
-### DOM y Browser APIs
-- DOM Manipulation (Week 17)
-- Event Handling (Week 18)
-- Web Storage (Week 19)
-- Forms (Week 20)
-- Files (Week 22)
+### DOM y Browser APIs (Etapa 2)
+- DOM manipulation (S26)
+- Event handling (S27)
+- Web Storage + FormData (S28)
 
-### Calidad y Testing
-- Performance (Week 23)
-- Jest Testing (Week 25-26)
-- Patrones (Week 27)
-- Clean Code (Week 27)
-
-### Proyectos Integradores
-- Fundamentos (Week 12)
-- Intermedio (Week 24)
-- Final (Week 28)
+### Calidad y Arquitectura (Etapa 2)
+- Programación funcional (S29)
+- Performance y debugging (S30)
+- Testing con Jest (S31)
+- Patrones de diseño (S32)
+- Clean code y SOLID (S33)
 
 ---
 
-## 🎯 Objetivos de Salida
+## 📋 Estado de Avance
 
-Al completar las 28 semanas, el estudiante será capaz de:
-
-✅ **Programar con JavaScript ES2023** usando todas las características modernas
-✅ **Crear aplicaciones web completas** con arquitectura limpia
-✅ **Consumir APIs REST** y manejar datos asíncronos
-✅ **Manipular el DOM** de forma eficiente y reactiva
-✅ **Escribir tests automatizados** con Jest
-✅ **Aplicar patrones de diseño** y clean code
-✅ **Optimizar rendimiento** de aplicaciones JavaScript
-✅ **Trabajar con Git** y metodologías colaborativas
-
-**Nivel de salida**: Desarrollador JavaScript Junior
+| Semana | Título | Estado |
+|--------|--------|--------|
+| S01 | ¿Qué es programar? Mi primer JavaScript | ✅ Completada |
+| S02 | Variables y Tipos de Datos | ⏳ Pendiente |
+| S03 | Operadores y Expresiones | ⏳ Pendiente |
+| S04 | Strings y Template Literals | ⏳ Pendiente |
+| S05 | Condicionales | ⏳ Pendiente |
+| S06 | Bucles | ⏳ Pendiente |
+| S07 | Funciones | ⏳ Pendiente |
+| S08 | Arrays | ⏳ Pendiente |
+| S09 | Objetos | ⏳ Pendiente |
+| S10 | Proyecto Integrador Etapa 0 | ⏳ Pendiente |
+| S11 | JavaScript Moderno — Repaso y Profundización | ⏳ Pendiente |
+| S12 | Spread, Rest y Métodos Avanzados de Arrays | ⏳ Pendiente |
+| S13 | Clases y POO | ⏳ Pendiente |
+| S14 | Módulos ES2023 | ⏳ Pendiente |
+| S15 | Arrays Avanzados ES2023 | ⏳ Pendiente |
+| S16 | Strings y RegExp Modernos | ⏳ Pendiente |
+| S17 | Sets y Maps | ⏳ Pendiente |
+| S18 | Iteradores y Generadores | ⏳ Pendiente |
+| S19 | Símbolos y Metaprogramación | ⏳ Pendiente |
+| S20 | Manejo de Errores Moderno | ⏳ Pendiente |
+| S21 | Closures, Scope Avanzado y Patrones Funcionales | ⏳ Pendiente |
+| S22 | Proyecto Integrador Etapa 1 | ⏳ Pendiente |
+| S23 | Programación Asincrónica — Callbacks y Promises | ⏳ Pendiente |
+| S24 | Async/Await | ⏳ Pendiente |
+| S25 | Fetch API y APIs REST | ⏳ Pendiente |
+| S26 | DOM Moderno | ⏳ Pendiente |
+| S27 | Eventos del DOM | ⏳ Pendiente |
+| S28 | Web Storage y Persistencia | ⏳ Pendiente |
+| S29 | Programación Funcional | ⏳ Pendiente |
+| S30 | Performance y Debugging | ⏳ Pendiente |
+| S31 | Testing con Jest | ⏳ Pendiente |
+| S32 | Patrones de Diseño | ⏳ Pendiente |
+| S33 | Clean Code y Mejores Prácticas | ⏳ Pendiente |
+| S34 | Proyecto Final — Bootcamp | ⏳ Pendiente |
 
 ---
 
-## 📈 Progreso Actual
-
-- ✅ **Week 01**: Introducción a JavaScript Moderno - COMPLETADA
-- ✅ **Week 02**: Operadores y Array Methods - COMPLETADA
-- ⏸️ **Week 03**: Clases y OOP - PENDIENTE
-- ⏸️ **Week 04-28**: PENDIENTE
-
-**Completado**: 2/28 semanas (7.14%)
-**Horas completadas**: 16/224 horas (7.14%)
-
----
-
-## 📝 Notas
-
-- Cada semana sigue la misma estructura de carpetas
-- Los proyectos son acumulativos en complejidad
-- Se recomienda completar las semanas en orden
-- Las evaluaciones son 30% conocimiento + 40% desempeño + 30% producto
-- Mínimo 70% de aprobación por semana
-
----
-
-**Última actualización**: Diciembre 2024
-**Versión**: 1.0
+_Última actualización: Marzo 2026_
+_Versión: 2.0 — Reestructuración zero-to-hero_
