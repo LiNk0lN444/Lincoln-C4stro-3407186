@@ -1,107 +1,124 @@
 // ============================================
 // PROYECTO SEMANA 03: Calculadora de Dominio
 // ============================================
-// Adapta este archivo a tu dominio asignado.
-//
-// Ejemplos con dominios no asignables:
-// - Planetario    → calcular ingresos por función, capacidad disponible
-// - Acuario       → calcular costo de alimentación, volumen total de tanques
-// - Museo         → calcular valor de exhibición, costo de entrada
-// - Zoológico     → calcular gasto diario por especie, total de visitantes
-// - Observatorio  → calcular duración total de eventos, aforo restante
+// Dominio: GESTIÓN DE BODEGAS (LogistiTrack)
+// Objetivo: Automatizar cálculos de costos, stock y alertas
 // ============================================
 
 // ============================================
 // SECCIÓN 1: Datos del dominio
 // ============================================
 
-// TODO: Define las constantes base de tu dominio
-// Ejemplos con dominios no asignables:
-//   Planetario:   TICKET_PRICE = 12_000, MAX_CAPACITY = 45
-//   Acuario:      DAILY_FEEDING_KG = 150, ENTRY_PRICE = 35_000
-//   Museo:        ADULT_TICKET = 20_000, GUIDED_TOUR = 15_000
-//   Zoológico:    FOOD_COST_PER_DAY = 500_000, MAX_VISITORS = 800
-//   Observatorio: SESSION_DURATION = 90, TICKET_PRICE = 18_000
-
-// const EXAMPLE_CONSTANT = 0; // TODO: Reemplazar con tus constantes
+// Constantes base para los cálculos de la bodega
+// Usamos UPPER_SNAKE_CASE para valores fijos y guiones bajos para legibilidad
+const UNIT_PRICE_CEMENT = 35_000;
+const MAX_WAREHOUSE_CAPACITY = 1_000; // Capacidad máxima en bultos
+const MIN_SAFETY_STOCK = 50;          // Stock mínimo de seguridad
+const TAX_RATE = 0.19;                // IVA del 19%
 
 // ============================================
 // SECCIÓN 2: Operaciones aritméticas
 // ============================================
-console.log("=== Operaciones básicas ===");
+console.log("=== Operaciones básicas de Inventario ===");
 
-// TODO: Calcula totales, subtotales o valores clave de tu dominio
-// Usa: +, -, *, /, %, **
-// Etiqueta cada resultado con console.log()
+let currentBags = 450;
+let incomingShipment = 120;
 
-// Ejemplo con dominio Planetario (NO copiar):
-// const ticketPrice = 12_000;
-// const attendees = 38;
-// const totalRevenue = ticketPrice * attendees;
-// console.log("Ingresos función:", totalRevenue);
-// const remainingSeats = 45 - attendees;
-// console.log("Asientos disponibles:", remainingSeats);
+// 1. Suma (+): Total de bultos tras recibir pedido
+const totalStock = currentBags + incomingShipment;
+console.log("Total de bultos en bodega (Stock):", totalStock);
+
+// 2. Resta (-): Espacio libre en la bodega
+const availableSpace = MAX_WAREHOUSE_CAPACITY - totalStock;
+console.log("Espacio disponible para nuevos bultos:", availableSpace);
+
+// 3. Multiplicación (*): Costo total antes de impuestos
+const subtotalCost = totalStock * UNIT_PRICE_CEMENT;
+console.log("Subtotal del valor de la bodega: $", subtotalCost);
+
+// 4. División (/): Peso total en toneladas (cada bulto pesa 50kg)
+const totalTons = (totalStock * 50) / 1_000;
+console.log("Peso total almacenado (Toneladas):", totalTons);
+
+// 5. Módulo (%): Bultos que sobran al armar estibas de 12 unidades
+const leftoverBags = totalStock % 12;
+console.log("Bultos sueltos (fuera de estibas completas):", leftoverBags);
 
 console.log("");
 
 // ============================================
 // SECCIÓN 3: Asignación compuesta
 // ============================================
-console.log("=== Asignación compuesta ===");
+console.log("=== Actualización de Valores (Asignación compuesta) ===");
 
-// TODO: Usa +=, -=, *=, /= para actualizar valores acumulados
-// Muestra el valor antes y después de cada operación
+let dailyRevenue = 0;
+console.log("Ingresos iniciales del día:", dailyRevenue);
 
-// Ejemplo (NO copiar):
-// let runningTotal = 0;
-// runningTotal += 25_000;
-// console.log("Tras primer item:", runningTotal);
-// runningTotal += 18_000;
-// console.log("Tras segundo item:", runningTotal);
-// runningTotal *= 0.90; // descuento del 10%
-// console.log("Con descuento:", runningTotal);
+// Sumamos una venta de 5 bultos (+=)
+dailyRevenue += (5 * UNIT_PRICE_CEMENT);
+console.log("Tras primera venta (+5 bultos):", dailyRevenue);
+
+// Sumamos otra venta de 10 bultos con un recargo por transporte
+dailyRevenue += (10 * UNIT_PRICE_CEMENT) + 15_000;
+console.log("Tras segunda venta con transporte:", dailyRevenue);
+
+// Aplicamos un descuento por pronto pago del 5% (*=)
+dailyRevenue *= 0.95;
+console.log("Total tras aplicar descuento del 5%: $", dailyRevenue);
 
 console.log("");
 
 // ============================================
 // SECCIÓN 4: Comparación estricta
 // ============================================
-console.log("=== Validaciones con === ===");
+console.log("=== Validaciones de Seguridad (===) ===");
 
-// TODO: Valida condiciones usando === y operadores de orden
-// NUNCA uses == (penalización en la rúbrica)
+const itemsBroken = 0;
+// Verificamos si la bodega está impecable usando === (estricto)
+const isImpeccable = itemsBroken === 0;
+console.log("¿La bodega tiene cero pérdidas?:", isImpeccable);
 
-// Ejemplo (NO copiar):
-// const daysLate = 5;
-// const isOnTime = daysLate === 0;
-// console.log("¿Entregado a tiempo?", isOnTime);
-// const hasFine = daysLate > 0;
-// console.log("¿Tiene multa?", hasFine);
+// Verificamos si estamos en nivel crítico de stock
+const isCritical = totalStock <= MIN_SAFETY_STOCK;
+console.log("¿El nivel de stock es crítico?:", isCritical);
+
+// Verificamos si superamos la capacidad máxima
+const isOverloaded = totalStock > MAX_WAREHOUSE_CAPACITY;
+console.log("¿Existe sobrecarga en la estructura?:", isOverloaded);
 
 console.log("");
 
 // ============================================
 // SECCIÓN 5: Operadores lógicos
 // ============================================
-console.log("=== Condiciones lógicas ===");
+console.log("=== Condiciones de Operación (Lógicos) ===");
 
-// TODO: Combina condiciones con &&, ||, !
-// Al menos una condición con && y una con ||
+const isWarehouseOpen = true;
+const hasPowerSupply = true;
 
-// Ejemplo (NO copiar):
-// const isMember = true;
-// const purchaseAmount = 150_000;
-// const qualifiesForDiscount = isMember && purchaseAmount >= 100_000;
-// console.log("¿Descuento aplicable?", qualifiesForDiscount);
+// Condición con &&: Solo se puede despachar si está abierto Y hay stock disponible
+const canDispatch = isWarehouseOpen && totalStock > 0;
+console.log("¿Se pueden realizar despachos hoy?:", canDispatch);
+
+// Condición con ||: Se requiere alerta si hay sobrecarga O si no hay luz
+const requireEmergencyProtocol = isOverloaded || !hasPowerSupply;
+console.log("¿Activar protocolo de emergencia?:", requireEmergencyProtocol);
 
 console.log("");
 
 // ============================================
 // SECCIÓN 6: Resumen final
 // ============================================
-console.log("=== Resumen ===");
+console.log("=== Resumen Ejecutivo LogistiTrack ===");
 
-// TODO: Muestra un resumen con los valores más importantes
-// calculados en las secciones anteriores
+// Cálculo final con impuestos
+const finalValuation = subtotalCost + (subtotalCost * TAX_RATE);
+
+console.log(`Resumen: Contamos con ${totalStock} bultos.`);
+console.log(`Valoración total con IVA: $${finalValuation}`);
+console.log(`Estado de despacho: ${canDispatch ? "AUTORIZADO" : "BLOQUEADO"}`);
 
 console.log("");
+console.log("=========================================");
+console.log("       FIN DEL CÁLCULO - SEMANA 03       ");
+console.log("=========================================");

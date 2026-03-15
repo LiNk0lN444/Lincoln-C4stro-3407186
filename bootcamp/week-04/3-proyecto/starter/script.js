@@ -2,17 +2,14 @@
 // PROYECTO SEMANA 04: Generador de Mensajes
 // ============================================
 //
-// 🎯 OBJETIVO: Construir un generador de mensajes
+//  OBJETIVO: Construir un generador de mensajes
 //    en consola usando métodos de string y
 //    template literals.
 //
-// 📋 TU DOMINIO: Adapta cada TODO al dominio
-//    que te fue asignado por el instructor.
+//  MI DOMINIO: GESTIÓN DE BODEGAS (LogistiTrack)
 //
-// ⚠️  POLÍTICA ANTICOPIA: Tu implementación debe
+//   POLÍTICA ANTICOPIA: Tu implementación debe
 //    ser única y coherente con tu dominio.
-//    Usa dominios no asignables como referencia
-//    conceptual, pero NO copies valores.
 //
 // ============================================
 
@@ -21,26 +18,26 @@
 // ============================================
 
 // TODO: Define el nombre de tu dominio
-const DOMAIN_NAME = "Mi Dominio";
+const DOMAIN_NAME = "LogistiTrack - Gestión de Inventarios";
 
 // TODO: Define el nombre de la entidad principal
 // Inclúyelo con espacios y mayúsculas/minúsculas
 // para poder aplicar transformaciones después
-const rawEntityName = "  nombre de la entidad  ";
+// MÉTODO 1 QUE USAREMOS: .trim() después
+const rawEntityName = "   Montacargas Eléctrico de Pasillo Estrecho   ";
 
 // TODO: Define una categoría o tipo (string)
-const entityCategory = "Categoría del elemento";
+const entityCategory = "Maquinaria Pesada y Logística";
 
 // TODO: Define un código identificador (string)
-// Elige un prefijo coherente con tu dominio
-const entityCode = "COD-001";
+const entityCode = "BOD-99-LOG";
 
 // TODO: Define una descripción corta (string)
 // Debe contener varias palabras para usar includes/slice
-const entityDescription = "Descripción interesante de la entidad del dominio asignado.";
+const entityDescription = "Vehículo industrial de alta precisión diseñado para optimizar el espacio en bodegas de gran altura.";
 
 // TODO: Define un dato numérico relevante (number)
-const mainValue = 0;
+const mainValue = 45_000_000;
 
 // TODO: Define un estado booleano
 const isActive = true;
@@ -51,16 +48,19 @@ const isActive = true;
 // ============================================
 
 // TODO: Limpia el nombre con trim()
+// Requisito: Limpiar espacios innecesarios al inicio y final
 const entityName = rawEntityName.trim();
 
 // TODO: Obtén el nombre en mayúsculas para el encabezado
+// MÉTODO 2: .toUpperCase()
 const entityNameUpper = entityName.toUpperCase();
 
 // TODO: Obtén el nombre en minúsculas para el código
+// MÉTODO 3: .toLowerCase()
 const entityNameLower = entityName.toLowerCase();
 
 // TODO: Extrae las primeras letras del código con slice()
-// para usarlas como prefijo de referencia
+// MÉTODO 4: .slice() para obtener solo el prefijo 'BOD'
 const codePrefix = entityCode.slice(0, 3);
 
 
@@ -69,40 +69,42 @@ const codePrefix = entityCode.slice(0, 3);
 // ============================================
 
 // TODO: Verifica si el código empieza con el prefijo correcto
-// Usa startsWith() con el prefijo que definiste
-const hasValidPrefix = entityCode.startsWith(codePrefix);
+// MÉTODO 5: .startsWith()
+const hasValidPrefix = entityCode.startsWith("BOD");
 
 // TODO: Verifica si la descripción contiene una palabra clave
-// Usa includes() con una palabra importante de tu dominio
-const descriptionIsRelevant = entityDescription.includes("dominio");
+// MÉTODO 6: .includes()
+const descriptionIsRelevant = entityDescription.includes("optimizar");
 
 // TODO: Verifica si el código termina con los dígitos
-// Usa endsWith() con algo coherente de tu dominio
-const hasValidSuffix = entityCode.endsWith("001");
+// MÉTODO 7: .endsWith()
+const hasValidSuffix = entityCode.endsWith("LOG");
 
 
 // ============================================
 // SECCIÓN 4: Generación de la ficha principal
 // ============================================
 
-const separator = "=".repeat(45);
-const subSeparator = "-".repeat(45);
+// MÉTODO 8: .repeat() para crear líneas decorativas rápidas
+const separator = "=".repeat(50);
+const subSeparator = "-".repeat(50);
 
 // TODO: Construye la ficha multilínea usando template literals
-// Usa TODAS las variables transformadas arriba
+// Uso de TODAS las variables transformadas arriba (SIN USAR EL SIGNO +)
 const mainCard = `
 ${separator}
-  ${DOMAIN_NAME.toUpperCase()} — FICHA DE ENTIDAD
+   ${DOMAIN_NAME.toUpperCase()} — FICHA TÉCNICA
 ${separator}
-Nombre:      ${entityNameUpper}
-Categoría:   ${entityCategory}
-Código:      ${entityCode}
-Prefijo:     ${codePrefix}
-Valor:       ${mainValue}
-Estado:      ${isActive ? "Activo" : "Inactivo"}
+Nombre Limpio:   ${entityName}
+En Mayúsculas:   ${entityNameUpper}
+Categoría:       ${entityCategory}
+Identificador:   ${entityCode}
+Prefijo de Área: ${codePrefix}
+Valor Unitario:  $${mainValue}
+Estado Actual:   ${isActive ? "OPERATIVO " : "EN MANTENIMIENTO "}
 
 ${subSeparator}
-Descripción:
+Descripción de Uso:
 ${entityDescription}
 ${separator}
 `;
@@ -114,11 +116,11 @@ console.log(mainCard);
 // SECCIÓN 5: Validaciones
 // ============================================
 
-console.log("--- Validaciones ---");
+console.log("--- Reporte de Auditoría de Datos ---");
 // TODO: Muestra los resultados de las validaciones con template literals
-console.log(`¿Código empieza con '${codePrefix}'?: ${hasValidPrefix}`);
-console.log(`¿Descripción contiene 'dominio'?: ${descriptionIsRelevant}`);
-console.log(`¿Código termina con '001'?: ${hasValidSuffix}`);
+console.log(`¿El código tiene el prefijo de bodega?: ${hasValidPrefix}`);
+console.log(`¿La descripción menciona 'optimizar'?:  ${descriptionIsRelevant}`);
+console.log(`¿El código termina en sufijo logístico?: ${hasValidSuffix}`);
 console.log("");
 
 
@@ -126,10 +128,14 @@ console.log("");
 // SECCIÓN 6: Mensaje de notificación corto
 // ============================================
 
-console.log("--- Notificación ---");
+console.log("--- Notificación del Sistema ---");
 
 // TODO: Construye un mensaje corto de una línea
 // Usa template literal con el nombre limpio y el código
-const notification = `📢 Nuevo elemento disponible: ${entityName} (${entityCode})`;
+const notification = ` ALERTA DE STOCK: Se ha registrado el elemento ${entityName} bajo el código ${entityCode}.`;
 console.log(notification);
 console.log("");
+
+console.log("=========================================");
+console.log("       FIN DEL PROYECTO - SEMANA 04      ");
+console.log("=========================================");

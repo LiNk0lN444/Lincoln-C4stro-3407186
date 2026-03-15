@@ -1,4 +1,6 @@
 /*
+//PROYECTO - SEMANA 01
+// DOMINIO ASIGNADO: SISTEMA DE GESTION DE BODEGAS
  * script.js — Ficha de Presentación de Dominio
  *
  * Semana 1: ¿Qué es programar? Mi primer JavaScript
@@ -7,30 +9,16 @@
  * ============================================
  * POLÍTICA ANTICOPIA
  * ============================================
- * Cada aprendiz trabaja sobre un DOMINIO ÚNICO asignado por el instructor.
- * Adapta TODOS los TODOs a tu dominio específico.
- * Copiar la implementación de otro compañero resulta en calificación de cero.
- *
- * INSTRUCCIONES:
- * 1. Confirma con tu instructor cuál es tu dominio asignado
- * 2. Reemplaza cada [PLACEHOLDER] con la información de TU dominio
- * 3. Completa cada TODO adaptado a tu contexto
- * 4. Ejecuta con: node starter/script.js
- *
- * NOTA SOBRE LOS EJEMPLOS:
- * Los comentarios de ayuda usan "Planetario" como dominio de ejemplo
- * porque NO es un dominio asignable. No copies esos valores —
- * crea los tuyos basados en tu dominio asignado.
  */
 
 // ============================================
-// ENCABEZADO — identifica el dominio y la entidad
+//PROYECTO - SEMANA 01
+// DOMINIO ASIGNADO: SISTEMA DE GESTION DE BODEGAS
 // ============================================
 
-// TODO: Cambia el título con el nombre de tu dominio y un identificador
-// Ejemplo (Planetario): '    PLANETARIO MUNICIPAL - FICHA #001    '
+// TODO: Cambia el título con el nombre de tu dominio y un identificador    '
 console.log('=========================================');
-console.log('[TU DOMINIO] - FICHA DE PRESENTACIÓN');
+console.log('LOGISTITRACK - #Ficha-001');
 console.log('=========================================');
 console.log('');
 
@@ -39,28 +27,22 @@ console.log('');
 // ============================================
 
 // Datos básicos que identifican la entidad principal del dominio
-console.log('INFORMACIÓN GENERAL');
-console.log('--------------------');
+console.log('Nombre:        Bulto de cemento gris');
+console.log('Código:          CEM-50KG');
+console.log('Categoría:          Materiales de construcción');
 
-// TODO: Reemplaza con el nombre de tu entidad principal (string — con comillas)
-// Ejemplos con dominios no asignables:
-//   Planetario  → nombre de la exhibición: 'Sistema Solar en 3D'
-//   Acuario     → nombre de la especie:    'Tiburón Ballena'
-//   Museo       → título de la obra:       'La Gioconda (réplica)'
-//   Zoológico   → nombre del animal:       'León Africano'
-console.log('Nombre:          [NOMBRE DE LA ENTIDAD]');
 
 // TODO: Reemplaza con un código o identificador único (string o number)
 // Ejemplos: 'PLN-042', 'ACU-117', 'MUS-007', 452
-console.log('Código:          [CÓDIGO O ID]');
+console.log('Código:          BOD-102');
 
 // TODO: Reemplaza con la categoría o tipo de la entidad (string)
 // Ejemplos: 'Astronomía - Nivel básico', 'Pez cartilaginoso', 'Arte renacentista'
-console.log('Categoría:       [CATEGORÍA O TIPO]');
+console.log('Categoría:       Herramienta electrica');
 
 // TODO: Indica el estado actual de la entidad (string)
 // Ejemplos: 'Disponible', 'En stock', 'Activo', 'Ocupado'
-console.log('Estado:          [ESTADO ACTUAL]');
+console.log('Estado:          En stock');
 
 console.log('');
 
@@ -72,24 +54,17 @@ console.log('');
 console.log('DETALLES');
 console.log('--------------------');
 
-// TODO: Reemplaza con un dato numérico relevante para tu dominio (number — sin comillas)
-// Ejemplos: precio → 15000, stock → 48, páginas → 320, capacidad → 30
-console.log('Valor principal:    [NÚMERO SIN COMILLAS]');
+// Dato numérico: Precio unitario de la herramienta (number — sin comillas)
+console.log('Precio unitario:    250000');
 
-// TODO: Reemplaza el 0 por una expresión aritmética que se calcule automáticamente
-// No uses variables — escribe directamente el cálculo con números literales
-// Ejemplos:
-//   Precio con 20% descuento:  15000 * 0.8
-//   Total (cantidad × precio): 3 * 15000
-//   Capacidad restante:        30 - 12
-console.log('Valor calculado:    ', 0); // TODO: reemplaza 0 con tu cálculo
+// Expresión aritmética: Cálculo de stock proyectado (Ej: stock actual 50 menos 5 que salen)
+console.log('Stock proyectado:   ', 50 - 5); 
 
-// TODO: Valor boolean que representa un estado de la entidad (true o false — sin comillas)
-// Ejemplos: disponible → true, enStock → false, esNuevo → true
-console.log('Estado booleano 1:  [true o false]');
+// Valor boolean: Indica si el producto está disponible (true o false — sin comillas)
+console.log('¿Hay disponibilidad?: true');
 
-// TODO: Otro valor boolean diferente al anterior (true o false — sin comillas)
-console.log('Estado booleano 2:  [true o false]');
+// Otro valor boolean: Indica si el producto requiere mantenimiento
+console.log('¿Mantenimiento?:      false');
 
 console.log('');
 
@@ -97,21 +72,18 @@ console.log('');
 // RESUMEN DEL DOMINIO
 // ============================================
 
-// Visión general del dominio como sistema, no de una sola entidad
+// Visión general del dominio como sistema
 console.log('RESUMEN DEL DOMINIO');
 console.log('--------------------');
 
-// TODO: Escribe el nombre de tu dominio asignado (string)
-// Ejemplos: 'Planetario', 'Acuario', 'Museo', 'Zoológico'
-console.log('Dominio:          [TU DOMINIO ASIGNADO]');
+// Nombre del dominio asignado (string)
+console.log('Dominio:          Gestión de Bodegas');
 
-// TODO: ¿Cómo se llama la entidad principal de tu dominio? (string)
-// Ejemplos: 'exhibición', 'especie', 'obra', 'animal', 'evento'
-console.log('Entidad:          [TIPO DE ENTIDAD]');
+// Nombre de la entidad principal (string)
+console.log('Entidad:          Herramientas e Insumos');
 
-// TODO: ¿Cuántos registros tiene tu dominio en total? (number — sin comillas)
-// Puede ser un número inventado pero coherente con el dominio
-console.log('Total registros:  [NÚMERO TOTAL]');
+// Total de registros coherente con el dominio (number — sin comillas)
+console.log('Total registros:  150');
 
 console.log('');
 
@@ -119,12 +91,11 @@ console.log('');
 // CIERRE
 // ============================================
 
-// Mensaje final del script
+// Mensaje final del script organizado con separadores
 console.log('=========================================');
 
-// TODO: Escribe un mensaje de cierre relacionado con tu dominio (string)
-// Ejemplo (Planetario): '  ¡Explora el universo con JavaScript!'
-console.log('[MENSAJE DE CIERRE DE TU DOMINIO]');
+// Mensaje de cierre relacionado con el dominio (string)
+console.log('  ¡Inventario bajo control con JavaScript!');
 
 console.log('=========================================');
 
