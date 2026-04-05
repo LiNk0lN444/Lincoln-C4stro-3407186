@@ -1,225 +1,111 @@
-// ============================================
-// PROYECTO INTEGRADOR — ETAPA 0
-// Semana 10 — JavaScript ES2023 Bootcamp
-// ============================================
-//
-// INSTRUCCIONES:
-// 1. Reemplaza DOMAIN_NAME y los datos de ejemplo con tu dominio asignado
-// 2. Implementa cada TODO siguiendo las instrucciones de los comentarios
-// 3. Ejecuta con: node 3-proyecto/starter/app.js
-// 4. Valida el checklist del README antes de entregar
-//
-// DOMINIO ASIGNADO: [completar con tu dominio]
-// ============================================
+"use strict";
 
 // ============================================
-// SECCIÓN 1: Configuración y Constantes (Semanas 01–02)
+// SECCIÓN 1: Configuración y Constantes
 // ============================================
-
-// TODO: Renombrar con el nombre de tu dominio (en inglés, UPPER_SNAKE_CASE)
-const DOMAIN_NAME = "Mi Aplicación";
-const VALUE_LABEL = "elementos";
-
-// TODO: Ajustar al límite razonable para tu dominio
-// Usa separadores numéricos (ES2021): 1_000, 10_000
-const MAX_ITEMS = 1_000;
+const DOMAIN_NAME = "LogistiTrack Pro - Bodega";
+const VALUE_LABEL = "insumos de logística";
+const MAX_ITEMS = 1_500; // Uso de separadores numéricos ES2021
 
 // ============================================
-// SECCIÓN 2: Datos — Array Principal (Semanas 01–02)
+// SECCIÓN 2: Datos — Array Principal
 // ============================================
-
-// TODO: Definir el array con MÍNIMO 6 objetos
-// Requisitos:
-// - Mínimo 5 propiedades por objeto (tipos mixtos)
-// - Al menos 1 propiedad numérica (para calcular estadísticas)
-// - Al menos 1 propiedad booleana (para filtrar activos/inactivos)
-// - Al menos 1 propiedad OPCIONAL (no todos los objetos la tienen)
-//
-// Nota para el aprendiz — Adaptaciones por dominio:
-// - Biblioteca:    { id, title, author, year, pages, available, notes? }
-// - Farmacia:      { id, name, price, stock, laboratory, active, prescription? }
-// - Gimnasio:      { id, name, memberType, fee, joinDate, active, plan? }
-// - Restaurante:   { id, name, category, price, calories, available, allergens? }
-// - Banco:         { id, owner, type, balance, rate, active, creditLimit? }
-
-const items = [
-  // TODO: Reemplazar con objetos de tu dominio
-  {
-    id: 1,
-    name: "Elemento 1",
-    value: 100,
-    active: true,
-    category: "tipo-a",
-  },
-  {
-    id: 2,
-    name: "Elemento 2",
-    value: 200,
-    active: true,
-    category: "tipo-b",
-    notes: "Propiedad opcional de ejemplo",
-  },
-  {
-    id: 3,
-    name: "Elemento 3",
-    value: 150,
-    active: false,
-    category: "tipo-a",
-  },
-  // TODO: Agregar al menos 3 objetos más (mínimo 6 en total)
+let items = [
+  { id: 1, name: "Estantería Pesada", price: 450000, active: true, zone: "Norte", stock: 15 },
+  { id: 2, name: "Montacargas Hidráulico", price: 1200000, active: true, zone: "Sur", stock: 2 },
+  { id: 3, name: "Kit Cajas x50", price: 85000, active: false, zone: "Norte", stock: 100 },
+  { id: 4, name: "Cinta Embalaje", price: 12500, active: true, zone: "Este", stock: 500 },
+  { id: 5, name: "Escáner Industrial", price: 320000, active: true, zone: "Sur", stock: 8 },
+  { id: 6, name: "Pallets Madera", price: 45000, active: true, zone: "Norte", stock: 40 }
 ];
 
 // ============================================
-// SECCIÓN 3: Funciones CRUD (Semanas 07–08)
+// SECCIÓN 3: Funciones de Formato
+// ============================================
+// Arrow function con template literals y padding para que la consola se vea alineada
+const formatItem = (item) => 
+  `[ID: ${String(item.id).padStart(2, '0')}] ${item.name.padEnd(22)} | Stock: ${String(item.stock).padStart(3)} | Zona: ${item.zone}`;
+
+// ============================================
+// SECCIÓN 4: Lógica de Negocio (Integración Semanas 07-09)
 // ============================================
 
-/**
- * Agrega un nuevo elemento al array principal
- * @param {Object} item - El elemento a agregar
- */
-const addItem = (item) => {
-  // TODO: Implementar
-  // 1. Verificar que no supere MAX_ITEMS (usar items.length)
-  // 2. Agregar el item al array con .push()
-  // 3. Mostrar confirmación con console.log y template literal
+// Buscar por ID (usando find)
+const findById = (id) => items.find(item => item.id === id);
+
+// Filtrar por estado activo (usando filter)
+const getActive = () => items.filter(item => item.active);
+
+// Filtrar dinámico (por cualquier propiedad)
+const filterByField = (field, value) => items.filter(item => item[field] === value);
+
+// Actualización Inmutable (Integración de Spread Operator)
+const updateItem = (id, newData) => {
+  items = items.map(item => 
+    item.id === id ? { ...item, ...newData } : item
+  );
+  return items;
 };
 
-/**
- * Busca un elemento por su id
- * @param {number} id - El id a buscar
- * @returns {Object|undefined} - El elemento encontrado o undefined
- */
-const findById = (id) => {
-  // TODO: Implementar usando .find()
-  return null;
-};
-
-/**
- * Retorna todos los elementos activos
- * @returns {Object[]}
- */
-const getActive = () => {
-  // TODO: Implementar usando .filter() con la propiedad booleana
-  return [];
-};
-
-/**
- * Filtra elementos por el valor de un campo
- * @param {string} field - El nombre de la propiedad
- * @param {*} value - El valor a buscar
- * @returns {Object[]}
- */
-const filterByField = (field, value) => {
-  // TODO: Implementar usando .filter()
-  return [];
+// Estadísticas (Uso de map y reduce)
+const calculateStats = (prop) => {
+  const values = items.map(item => item[prop]).filter(v => typeof v === "number");
+  const total = values.reduce((acc, curr) => acc + curr, 0);
+  return {
+    total,
+    avg: total / values.length,
+    max: Math.max(...values),
+    min: Math.min(...values)
+  };
 };
 
 // ============================================
-// SECCIÓN 4: Funciones de Análisis (Semanas 08–09)
+// SECCIÓN 5: Interfaz de Consola (Efectos)
 // ============================================
-
-/**
- * Actualiza un elemento de forma inmutable usando spread
- * @param {number} id - Id del elemento a actualizar
- * @param {Object} changes - Objeto con los cambios a aplicar
- * @returns {Object[]} - Nuevo array con el elemento actualizado
- */
-const updateItem = (id, changes) => {
-  // TODO: Implementar
-  // 1. Usar .map() para crear un nuevo array
-  // 2. Para el item con el id buscado: retornar { ...item, ...changes }
-  // 3. Para los demás: retornar el item sin cambios
-  return items.map((item) => item); // reemplazar esta línea
-};
-
-/**
- * Calcula estadísticas de un campo numérico
- * @param {string} field - El nombre de la propiedad numérica
- * @returns {{ min: number, max: number, avg: number, total: number }}
- */
-const calculateStats = (field) => {
-  // TODO: Implementar
-  // 1. Extraer los valores numéricos con Object.values o .map()
-  // 2. Calcular: min (Math.min), max (Math.max), avg (sum/length), total (sum)
-  // Pista: const values = items.map(i => i[field]);
-  return { min: 0, max: 0, avg: 0, total: 0 };
+const renderInventory = (title, list) => {
+  console.log(`\n--- ${title.toUpperCase()} ---`);
+  if (list.length === 0) {
+    console.log("   No hay elementos que coincidan.");
+  } else {
+    list.forEach(item => console.log(`  ${formatItem(item)}`));
+  }
 };
 
 // ============================================
-// SECCIÓN 5: Funciones de Display (Semanas 04–07)
+// SECCIÓN 6: Ejecución Principal (El "Corazón" de la App)
 // ============================================
 
-/**
- * Formatea un elemento para mostrar en consola (una línea)
- * @param {Object} item - El elemento a formatear
- * @returns {string}
- */
-const formatItem = (item) => {
-  // TODO: Implementar usando template literals
-  // 1. Usar .padEnd() o .padStart() para alinear columnas
-  // 2. Usar ?? y ?. para propiedades opcionales
-  // 3. Retornar string (NO hacer console.log aquí)
-  return `[${item.id}] ${item.name}`;
-};
+console.log("=".repeat(55));
+console.log(`    SISTEMA DE GESTIÓN: ${DOMAIN_NAME.toUpperCase()}`);
+console.log("=".repeat(55));
 
-/**
- * Genera el reporte completo del dominio
- * Usa: Object.entries, forEach, filter, map, calculateStats
- */
-const buildReport = () => {
-  // TODO: Implementar
-  // 1. Cabecera: título del dominio con template literal
-  // 2. Listado completo usando formatItem + forEach
-  // 3. Sección de activos vs inactivos (getActive)
-  // 4. Estadísticas con calculateStats para la propiedad numérica
-  // 5. Propiedades del primer elemento con Object.entries
-  // 6. Pie de reporte con conteo total
-  console.log(`Reporte de ${DOMAIN_NAME}`);
-  console.log("=".repeat(40));
-  items.forEach((item) => console.log(formatItem(item)));
-};
+// 1. Estado inicial del sistema
+console.log(`Capacidad: ${items.length} / ${MAX_ITEMS} ${VALUE_LABEL}`);
 
-// ============================================
-// SECCIÓN 6: Ejecución Principal
-// ============================================
-//
-// TODO: Descomentar a medida que implementes cada función
-//
+// 2. Operación: Búsqueda
+const itemEncontrado = findById(5);
+console.log(`\n Buscando Escáner (ID: 5): ${itemEncontrado ? "Localizado en zona " + itemEncontrado.zone : "No encontrado"}`);
 
-console.log("=".repeat(40));
-console.log(`  ${DOMAIN_NAME.toUpperCase()}`);
-console.log("=".repeat(40));
-console.log(`Total de ${VALUE_LABEL}: ${items.length} / ${MAX_ITEMS}`);
-console.log("");
+// 3. Operación: Filtrado por Zona
+const zonaNorte = filterByField("zone", "Norte");
+renderInventory("Inventario Zona Norte", zonaNorte);
 
-// Paso 1: Buscar por id
-// const found = findById(1);
-// console.log("Encontrado id=1:", found?.name ?? "no encontrado");
-// console.log("");
+// 4. Operación: Actualización Inmutable
+// Simulamos que el Kit de Cajas (ID: 3) vuelve a estar activo y sube de precio
+updateItem(3, { active: true, price: 90000 });
+console.log("\n Actualización: Kit de Cajas (ID: 3) reactivado en inventario.");
 
-// Paso 2: Listar activos
-// const active = getActive();
-// console.log(`Activos: ${active.length}`);
-// active.forEach(item => console.log(" ", formatItem(item)));
-// console.log("");
+// 5. Estadísticas Financieras
+const statsPrecios = calculateStats("price");
+console.log("\n RESUMEN DE VALORIZACIÓN:");
+console.log(`   Valor Total: $${statsPrecios.total.toLocaleString()}`);
+console.log(`   Promedio:    $${statsPrecios.avg.toLocaleString()}`);
+console.log(`   Máximo:      $${statsPrecios.max.toLocaleString()}`);
 
-// Paso 3: Filtrar por campo
-// const filtered = filterByField("category", "tipo-a");
-// console.log(`Filtro category=tipo-a: ${filtered.length} resultados`);
-// console.log("");
+// 6. Reporte Final de Activos
+const activos = getActive();
+renderInventory("Reporte de Disponibilidad Final", activos);
 
-// Paso 4: Actualizar con spread
-// const updated = updateItem(1, { value: 999 });
-// console.log(`Actualizado id=1: value=${updated.find(i => i.id === 1)?.value}`);
-// console.log("");
-
-// Paso 5: Estadísticas
-// const stats = calculateStats("value");
-// console.log(`Estadísticas (value): min=${stats.min} max=${stats.max} avg=${stats.avg.toFixed(2)}`);
-// console.log("");
-
-// Paso 6: Reporte completo
-// buildReport();
-
-// TODO: Agregar un nuevo elemento usando addItem
-// addItem({ id: 7, name: "Nuevo elemento", value: 300, active: true, category: "tipo-a" });
+console.log("\n" + "=".repeat(55));
+console.log("   PROCESO FINALIZADO - LOGISTITRACK SYNCED");
+console.log("=".repeat(55));
